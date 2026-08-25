@@ -1,0 +1,13 @@
+source_folder,scenario_id,relative_path,category,start_power_pct,end_power_pct,ramp_rate_pct_per_min,transition_direction,fault_code,fault_name,injection_time_s,failure_fraction_or_setting,operation_file,transient_report_file,dose_file,notes
+N1,NORM_80_to_100,Variable_Power_Data/NORM_80_to_100,normal_power_transition,80,100,1,increase,NA,NA,NA,NA,case1.mdb,case1.txt,case1dose.mdb,Normal power increase
+N2,NORM_100_to_80,Variable_Power_Data/NORM_100_to_80,normal_power_transition,100,80,1,decrease,NA,NA,NA,NA,case1.mdb,case1.txt,case1dose.mdb,Normal power decrease
+N3,NORM_70_to_90,Variable_Power_Data/NORM_70_to_90,normal_power_transition,70,90,1,increase,NA,NA,NA,NA,case1.mdb,case1.txt,case1dose.mdb,Normal power increase
+N4,NORM_90_to_70,Variable_Power_Data/NORM_90_to_70,normal_power_transition,90,70,1,decrease,NA,NA,NA,NA,case1.mdb,case1.txt,case1dose.mdb,Normal power decrease
+N5,LOCA_80_to_100,Variable_Power_Data/LOCA_80_to_100,accident_during_power_transition,80,100,1,increase,LOCA,Hot-leg LOCA,2298.5,5% of 100 cm²,case1.mdb,case1.txt,case1dose.mdb,Control rods drop and reactor power decreases after fault initiation.
+N6,RW_80_to_100,Variable_Power_Data/RW_80_to_100,accident_during_power_transition,80,100,1,increase,RW,Rod Ejection / Rapid Rod Withdrawal,2296.5,1% (+/-) withdrawn/insertion,case1.mdb,case1.txt,case1dose.mdb,NA
+N7,SGATR_80_to_100,Variable_Power_Data/SGATR_80_to_100,accident_during_power_transition,80,100,1,increase,SGATR,Steam Generator A Tube Rupture,2303,0.2% of one full tube rupture,case1.mdb,case1.txt,case1dose.mdb,NA
+N8,SGBTR_80_to_100,Variable_Power_Data/SGBTR_80_to_100,accident_during_power_transition,80,100,1,increase,SGBTR,Steam Generator B Tube Rupture,2299.5,0.2% of one full tube rupture,case1.mdb,case1.txt,case1dose.mdb,NA
+N9,LOCA_100_to_80,Variable_Power_Data/LOCA_100_to_80,accident_during_power_transition,100,80,1,decrease,LOCA,Hot-leg LOCA,915,5% of 100 cm²,case1.mdb,case1.txt,case1dose.mdb,Control rods drop and reactor power decreases after fault initiation.
+N10,RW_100_to_80,Variable_Power_Data/RW_100_to_80,accident_during_power_transition,100,80,1,decrease,RW,Rod Ejection / Rapid Rod Withdrawal,917,1% (+/-) withdrawn/insertion,case1.mdb,case1.txt,case1dose.mdb,NA
+N11,SGATR_100_to_80,Variable_Power_Data/SGATR_100_to_80,accident_during_power_transition,100,80,1,decrease,SGATR,Steam Generator A Tube Rupture,905,0.2% of one full tube rupture,case1.mdb,case1.txt,case1dose.mdb,NA
+N12,SGBTR_100_to_80,Variable_Power_Data/SGBTR_100_to_80,accident_during_power_transition,100,80,1,decrease,SGBTR,Steam Generator B Tube Rupture,910,0.2% of one full tube rupture,case1.mdb,case1.txt,case1dose.mdb,NA

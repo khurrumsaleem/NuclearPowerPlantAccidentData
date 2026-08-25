@@ -77,7 +77,7 @@ Finally, we get the dataset NPPAD with different conditions.
 PS: The dataset in this work does not include cases where mitigation system failures are superimposed on nuclear plant accidents, as such superimposed cases are too numerous to cover. 
 <br/>
 <br/>
-Table1 Accident sets covered by NPPAD
+Table 1. Operating and accident scenarios covered by NPPAD
 
 Folder name|Accident| Type     | Severity                  |
 :----------|:-------|:---------|:--------------------------|
@@ -99,6 +99,18 @@ FLB|Feedwater Line Break| Severity | % of 100 cm2              |
 MD|Moderator Dilution| Severity | % of unborated injection  |
 LR|Load Rejection| Severity | % of full load rejected   |
 LLB|Letdown Line Break in auxiliary buildings| Severity | % of nominal letdown flow |
+| Variable_Power_Data/NORM_80_to_100 | Normal power increase from 80% to 100% | Power transition | Ramp rate: 1%/min |
+| Variable_Power_Data/NORM_100_to_80 | Normal power decrease from 100% to 80% | Power transition | Ramp rate: 1%/min |
+| Variable_Power_Data/NORM_70_to_90 | Normal power increase from 70% to 90% | Power transition | Ramp rate: 1%/min |
+| Variable_Power_Data/NORM_90_to_70 | Normal power decrease from 90% to 70% | Power transition | Ramp rate: 1%/min |
+| Variable_Power_Data/LOCA_80_to_100 | Hot-leg LOCA during the 80%-to-100% power increase | Severity | 5% of 100 cm²; injected at 2298.5 s |
+| Variable_Power_Data/RW_80_to_100 | Rod ejection / rapid rod withdrawal during the 80%-to-100% power increase | Severity | 1% (+/-) withdrawn/insertion; injected at 2296.5 s |
+| Variable_Power_Data/SGATR_80_to_100 | Steam Generator A tube rupture during the 80%-to-100% power increase | Severity | 0.2% of one full tube rupture; injected at 2303 s |
+| Variable_Power_Data/SGBTR_80_to_100 | Steam Generator B tube rupture during the 80%-to-100% power increase | Severity | 0.2% of one full tube rupture; injected at 2299.5 s |
+| Variable_Power_Data/LOCA_100_to_80 | Hot-leg LOCA during the 100%-to-80% power decrease | Severity | 5% of 100 cm²; injected at 915 s |
+| Variable_Power_Data/RW_100_to_80 | Rod ejection / rapid rod withdrawal during the 100%-to-80% power decrease | Severity | 1% (+/-) withdrawn/insertion; injected at 917 s |
+| Variable_Power_Data/SGATR_100_to_80 | Steam Generator A tube rupture during the 100%-to-80% power decrease | Severity | 0.2% of one full tube rupture; injected at 905 s |
+| Variable_Power_Data/SGBTR_100_to_80 | Steam Generator B tube rupture during the 100%-to-80% power decrease | Severity | 0.2% of one full tube rupture; injected at 910 s |
 
 Table 2 Description of accident parameters
 
@@ -202,10 +214,16 @@ Table 2 Description of accident parameters
 | 96  | Ratio Core Flow                         | -               | RRCO  |
 | 97  | Flow FW Line Break (kg/s)               | kg/s            | WFLB  |
 
+### Variable-power extension
+
+In addition to the original NPPAD operating-condition classes, this repository provides 12 variable-power scenarios. The extension contains four normal power-transition trajectories and eight accident trajectories during power changes. All power transitions use a ramp-rate demand of 1% rated power per minute.
+
+The data are organized separately under [`Variable_Power_Data/`](Variable_Power_Data/). Detailed scenario metadata, including fault injection times and failure settings, are provided in [`Variable_Power_Data/manifest.csv`](Variable_Power_Data/manifest.csv).
+
 ### Dataset structure
 <img src="https://github.com/thu-inet/NuclearPowerPlantAccidentData/blob/main/Figures/fig2.png" width="475">
 <img src="https://github.com/thu-inet/NuclearPowerPlantAccidentData/blob/main/Figures/fig4.png" width="275">
-The NPPAD dataset covers 18 types of operating conditions, with Box 2 shows partially. Each operating condition sample contains three files, two in mdb format and the other in txt format. The mdb file can be opened directly through Microsoft Access. For example, the content of 1.mdb (PlotData) is shown in box 3, it represents the time series of the status parameters with a 1% of 100 cm2 break of LOCA, while PlotData represents the sub-table in the 1.mdb file. Another useful sub-table is ListPlotVariables, as shown in Box 6, which describes the parameters corresponding to the abbreviations in PlotData. And in box 4, 1Dose.mdb represents the time series of the radionuclide in the nuclear power plant. In addition to the mdb format, we also provide CSV format in the folders Operation_csv_data and Dose_csv_data. Besides, 1Transient Report.txt in box 5 describes the actions in the subsystems of the nuclear plant over the simulation time for each accident, which can help the user to understand the changes in the plant status. The numbers in front of the files in other operating conditions (e.g. 1.mdb, 2.mdb) correspond to the severity of the accident, and the exact meaning can be determined by column ‘severity’ of Table 1.  
+The original NPPAD release covers 18 operating-condition classes. This repository additionally provides 12 variable-power scenarios, including four normal power-transition trajectories and eight accident trajectories during power changes. Each operating condition sample contains three files, two in mdb format and the other in txt format. The mdb file can be opened directly through Microsoft Access. For example, the content of 1.mdb (PlotData) is shown in box 3, it represents the time series of the status parameters with a 1% of 100 cm2 break of LOCA, while PlotData represents the sub-table in the 1.mdb file. Another useful sub-table is ListPlotVariables, as shown in Box 6, which describes the parameters corresponding to the abbreviations in PlotData. And in box 4, 1Dose.mdb represents the time series of the radionuclide in the nuclear power plant. In addition to the mdb format, we also provide CSV format in the folders Operation_csv_data and Dose_csv_data. Besides, 1Transient Report.txt in box 5 describes the actions in the subsystems of the nuclear plant over the simulation time for each accident, which can help the user to understand the changes in the plant status. The numbers in front of the files in other operating conditions (e.g. 1.mdb, 2.mdb) correspond to the severity of the accident, and the exact meaning can be determined by column ‘severity’ of Table 1.
 
 ## Related scripts
 The following three scripts are provided in [Data Processing.py](https://github.com/thu-inet/NuclearPowerPlantAccidentData/blob/main/Data%20Processing.py)

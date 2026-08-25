@@ -1,0 +1,5 @@
+Reset to IC #1
+000917.5 sec, Malfunction # 12 Fraction = 01.0 %
+000918.5 sec, Scram High Flux 118.0 %
+0919.0 sec, Reactor Scram
+000919.5 sec, Malfunction # 9 Fraction = 00.0 %

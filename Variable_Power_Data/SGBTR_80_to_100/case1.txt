@@ -1,0 +1,2 @@
+Reset to IC #241
+002300.0 sec, Malfunction # 11 Fraction = 00.2 %
